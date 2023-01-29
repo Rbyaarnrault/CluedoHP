@@ -1,0 +1,11 @@
+package vue;
+
+import javax.swing.JPanel;
+
+public class Accueil extends JPanel {
+
+    public Accueil() {
+
+    }
+
+}

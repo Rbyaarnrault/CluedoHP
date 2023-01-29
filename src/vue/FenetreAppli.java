@@ -9,13 +9,26 @@ public class FenetreAppli {
     public FenetreAppli() { // Création et définition Fenêtre application
 
         // Création d'une JFrame
-        fen = new JFrame("Goathèque -   CONNEXION");
+        fen = new JFrame("Solver Cluedo Harry Potter");
         fen.addWindowListener(null);
-        fen.setSize(814, 537); // Correspondance à 800/500 pour l'affichage des panels // valeurs
+        fen.setSize(800, 500); // Correspondance à 800/500 pour l'affichage des panels // valeurs
         fen.setLayout(null);
         fen.setResizable(false);
         fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fen.setLocationRelativeTo(null);
         fen.setVisible(true);
+    }
+
+    public void choixJPanel(int numE) {
+
+        switch (numE) {
+            case 1: // Ecran Accueil
+
+                break;
+
+            case 2: // Ecran Nouvelle partie
+
+                break;
+        }
     }
 }
