@@ -1,6 +1,6 @@
 package modele;
 
-public class Suspect {
+public class Suspect extends JeuCartes {
     private String nomSuspect;
 
     public Suspect(String s) {
