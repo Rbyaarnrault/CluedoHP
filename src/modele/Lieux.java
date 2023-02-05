@@ -1,9 +1,8 @@
 package modele;
 
-public class Lieux extends JeuCartes {
-    private String nomLieux;
+public class Lieux extends Carte {
 
     public Lieux(String l) {
-        nomLieux = l;
+        super(l);
     }
 }

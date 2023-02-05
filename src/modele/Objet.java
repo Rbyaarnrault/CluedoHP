@@ -1,9 +1,8 @@
 package modele;
 
-public class Objet extends JeuCartes {
-    private String nomObjet;
+public class Objet extends Carte {
 
     public Objet(String o) {
-        nomObjet = o;
+        super(o);
     }
 }

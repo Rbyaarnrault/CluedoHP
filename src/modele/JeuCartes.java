@@ -4,40 +4,64 @@ import java.util.*;
 
 public class JeuCartes {
 
-    private ArrayList<Suspect> cartesSuspect;
+    private ArrayList<Carte> cartes;
+    private ArrayList<Suspect> cartesSuspects;
     private ArrayList<Objet> cartesObjets;
     private ArrayList<Lieux> cartesLieux;
-    private ArrayList cartesMystere;
 
     public JeuCartes() {
 
-        List<String> listeS = Arrays.asList("Balai piégé", "Collier maudit", "Philtre d'amour",
-                "Hydromel empoisonné", "Incendio", "Stupéfix");
-        for (int i = 0; i < listeS.size(); i++) {
-            cartesSuspect.add(new Suspect(listeS.get(i)));
+        cartesSuspects = new ArrayList<Suspect>();
+        String[] listeS = { "Fenrir Greyback", "Lucius Malefoy", "Peter Pettigrow",
+                "Drago Malefoy", "Rafleur", "Bellatrix Lestrange" };
+
+        for (int i = 0; i < listeS.length; i++) {
+            Suspect s = new Suspect(listeS[i]);
+            cartesSuspects.add(s);
+        }
+        cartesObjets = new ArrayList<Objet>();
+        String[] listeO = { "Balai piégé", "Collier maudit", "Philtre d'amour",
+                "Hydromel empoisonné", "Incendio", "Stupéfix" };
+
+        cartesLieux = new ArrayList<Lieux>();
+        for (int j = 0; j < listeO.length; j++) {
+            Objet o = new Objet(listeO[j]);
+            cartesObjets.add(o);
         }
 
-        List<String> listeO = Arrays.asList("Balai piégé", "Collier maudit", "Philtre d'amour",
-                "Hydromel empoisonné", "Incendio", "Stupéfix");
-        for (int j = 0; j < listeO.size(); j++) {
-            cartesObjets.add(new Objet(listeO.get(j)));
-        }
-
-        List<String> listeL = Arrays.asList("Manoir Malfoy", "Tête de sanglier", "Cabane hurlante",
+        String[] listeL = { "Manoir Malfoy", "Tête de sanglier", "Cabane hurlante",
                 "Poudlard", "Forêt interdite", "Gringotts",
-                "Chez Weasley, Farces...", "Ministère de la Magie", "12 Square Grimmaurd");
-        for (int k = 0; k < listeL.size(); k++) {
-            cartesLieux.add(new Lieux(listeL.get(k)));
+                "Chez Weasley, Farces...", "Ministère de la Magie", "12 Square Grimmaurd" };
+
+        for (int k = 0; k < listeL.length; k++) {
+            Lieux l = new Lieux(listeL[k]);
+            cartesLieux.add(l);
         }
 
-        for (Suspect s : cartesSuspect) {
-            cartesMystere.add(s);
+        cartes = new ArrayList<Carte>();
+
+        cartes.addAll(cartesSuspects);
+        cartes.addAll(cartesObjets);
+        cartes.addAll(cartesLieux);
+
+        System.out.println("\n ****************** \n ---Cartes---");
+        for (Carte car : cartes) {
+            System.out.println(car.getNomCartes());
         }
-        for (Objet o : cartesObjets) {
-            cartesMystere.add(o);
+
+        System.out.println("\n ****************** \n ---Cartes Suspects---");
+        for (Suspect sus : cartesSuspects) {
+            System.out.println(sus.getNomCartes());
         }
-        for (Lieux l : cartesLieux) {
-            cartesMystere.add(l);
+
+        System.out.println("\n ****************** \n ---Cartes Objets---");
+        for (Objet obj : cartesObjets) {
+            System.out.println(obj.getNomCartes());
+        }
+
+        System.out.println("\n ****************** \n ---Cartes Lieux---");
+        for (Lieux li : cartesLieux) {
+            System.out.println(li.getNomCartes());
         }
     }
 }

@@ -1,11 +1,8 @@
 package modele;
 
-public class Personnage {
-
-    private String nomPerso;
+public class Personnage extends Carte {
 
     public Personnage(String p) {
-        nomPerso = p;
+        super(p);
     }
-
 }
