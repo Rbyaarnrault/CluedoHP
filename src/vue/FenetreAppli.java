@@ -41,7 +41,7 @@ public class FenetreAppli {
                 break;
 
             case 3: // Ecran Partie
-                panelPartie = new EcranPartie();
+                // panelPartie = new EcranPartie();
                 fen.setContentPane(panelPartie);
                 fen.setTitle("Solver Cluedo HP  -  Partie en cours");
                 break;
