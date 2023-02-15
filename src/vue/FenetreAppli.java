@@ -6,8 +6,6 @@ import javax.swing.*;
 public class FenetreAppli {
     private static JFrame fen;
     private static EcranAccueil panelAccueil;
-    private static EcranCreationPartie panelCreaPartie;
-    private static EcranPartie panelPartie;
     private static EcranParametres panelParam;
 
     public FenetreAppli() { // Création et définition Fenêtre application
@@ -32,18 +30,6 @@ public class FenetreAppli {
                 panelAccueil = new EcranAccueil();
                 fen.setContentPane(panelAccueil);
                 fen.setTitle("Solver Cluedo HP  -  Accueil");
-                break;
-
-            case 2: // Ecran NouvellePartie
-                panelCreaPartie = new EcranCreationPartie();
-                fen.setContentPane(panelCreaPartie);
-                fen.setTitle("Solver Cluedo HP  -  Création d'une partie");
-                break;
-
-            case 3: // Ecran Partie
-                // panelPartie = new EcranPartie();
-                fen.setContentPane(panelPartie);
-                fen.setTitle("Solver Cluedo HP  -  Partie en cours");
                 break;
 
             case 4: // Ecran Parametres

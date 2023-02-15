@@ -8,7 +8,15 @@ public class Carte {
         nomCarte = n;
     }
 
-    public String getNomCartes() {
+    public Carte() {
+        nomCarte = "?"; // Carte Anonyme = non connue
+    }
+
+    public String getNomCarte() {
         return nomCarte;
+    }
+
+    public void SetNomCarte(String n) { // Quand carte connue, je met son nom
+        nomCarte = n;
     }
 }
