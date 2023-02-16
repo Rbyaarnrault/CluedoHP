@@ -1,6 +1,9 @@
 package vue;
 
 import javax.swing.JButton;
+
+import controlleur.Controlleurs;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,8 +12,11 @@ public class EcranAccueil extends JPanel implements ActionListener {
 
     private JButton boutonNouvellePartie;
     private JButton boutonParametres;
+    private Controlleurs contr;
 
-    public EcranAccueil() {
+    public EcranAccueil(Controlleurs contr) {
+
+        this.contr = contr;
         // Création d'un JPanel pour l'écran d'Abonnes
         this.setBackground(Color.lightGray);
         this.setLayout(null);
@@ -39,9 +45,9 @@ public class EcranAccueil extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boutonNouvellePartie) {
-            FenetreAppli.choixEcranAffiche(2);
+            contr.choixEcranAffiche(2);
         } else if (e.getSource() == boutonParametres) {
-            FenetreAppli.choixEcranAffiche(3);
+            contr.choixEcranAffiche(4);
         }
     }
 }

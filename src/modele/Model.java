@@ -10,7 +10,6 @@ public class Model {
     private ArrayList<Carte> cartesSuspects;
     private ArrayList<Carte> cartesObjets;
     private ArrayList<Carte> cartesLieux;
-
     private ArrayList<Carte> solution;
 
     public Model() {
@@ -23,31 +22,34 @@ public class Model {
         listeJoueurs = new ArrayList<Joueur>();
         jeuCartes = new ArrayList<Carte>();
         mesCartes = new ArrayList<Carte>();
+        cartesSuspects = new ArrayList<Carte>();
+        cartesObjets = new ArrayList<Carte>();
+        cartesLieux = new ArrayList<Carte>();
         solution = new ArrayList<Carte>();
 
-        System.out.println("\n-----------------------\n ---jeu de cartes complet---");
+        System.out.println("\n---------------------------\n---jeu de cartes complet---");
 
         for (int i = 0; i < 21; i++) { // jeu de cartes complet
             jeuCartes.add(new Carte(listeCartes[i]));
-            System.out.println(jeuCartes.get(i));
+            System.out.println(jeuCartes.get(i).getNomCarte());
         }
 
-        System.out.println("---cartes Suspects---");
+        System.out.println("\n---cartes Suspects---");
         for (int i = 0; i < 6; i++) { // cartes Suspects
             cartesSuspects.add(jeuCartes.get(i));
-            System.out.println(jeuCartes.get(i));
+            System.out.println(cartesSuspects.get(i).getNomCarte());
         }
 
-        System.out.println("---cartes Objets---");
+        System.out.println("\n---cartes Objets---");
         for (int i = 6; i < 12; i++) { // cartes Objets
             cartesObjets.add(jeuCartes.get(i));
-            System.out.println(jeuCartes.get(i));
+            System.out.println(cartesObjets.get(i - 6).getNomCarte());
         }
 
-        System.out.println("---cartes Lieux---");
+        System.out.println("\n---cartes Lieux---");
         for (int i = 12; i < 21; i++) { // cartes Lieux
             cartesLieux.add(jeuCartes.get(i));
-            System.out.println(jeuCartes.get(i));
+            System.out.println(cartesLieux.get(i - 12).getNomCarte());
         }
 
     }
