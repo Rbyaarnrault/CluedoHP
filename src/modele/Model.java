@@ -52,5 +52,10 @@ public class Model {
             System.out.println(cartesLieux.get(i - 12).getNomCarte());
         }
 
+        System.out.println("\n--------------------------------------------------------\n");
+    }
+
+    public ArrayList<Joueur> getListeJoueurs() {
+        return listeJoueurs;
     }
 }

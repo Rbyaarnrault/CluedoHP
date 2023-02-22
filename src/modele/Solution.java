@@ -10,6 +10,12 @@ public class Solution extends ArrayList<Carte> {
         this.add(l);
     }
 
+    public String getSolution() {
+        String s = "---Solution---\nTueur : " + getSuspectSolution() + "\nObjet : " + getObjetSolution() + "\nLieux : "
+                + getLieuxSolution();
+        return s;
+    }
+
     public String getSuspectSolution() {
         return this.get(0).getNomCarte();
     }

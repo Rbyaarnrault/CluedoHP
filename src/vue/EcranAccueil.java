@@ -1,7 +1,5 @@
 package vue;
 
-import javax.swing.JButton;
-
 import controlleur.Controlleurs;
 
 import javax.swing.*;
