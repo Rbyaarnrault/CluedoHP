@@ -4,6 +4,7 @@ import modele.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.time.Year;
 import java.util.*;
 
 import controlleur.Controlleurs;
@@ -19,20 +20,26 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
     private JTextField barreJ2, barreJ3, barreJ4, barreJ5;
     private JButton boutonSuivant;
     private Font pol;
+    private JPanel choixJ;
 
     public EcranChoixJoueurs(Controlleurs contr) {
         this.contr = contr;
         this.setBackground(Color.lightGray);
         this.setLayout(null);
         this.setBounds(0, 0, 600, 600);
-        ChoisirJoueurs();
+        AfficherComposantsNonEffaces();
+        ;
         pol = new Font("Serif", Font.BOLD, 20);
         afficherBoutonRetour();
+        choixJ = new JPanel();
+        choixJ.setLayout(null);
+        choixJ.setBounds(0, 150, 600, 450);
+        this.add(choixJ);
     }
 
-    public void cleanEcran() { // Fonction de refresh du JPanel(Ecran)
-        this.removeAll();
-        this.updateUI();
+    public void cleanEcran(JPanel pan) { // Fonction de refresh du JPanel(Ecran)
+        pan.removeAll();
+        pan.updateUI();
     }
 
     public void afficherBoutonRetour() { // (évite de répéter le code)
@@ -44,9 +51,8 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
     }
 
     // -----------------CASE1------------------
-    public void ChoisirJoueurs() {
+    public void AfficherComposantsNonEffaces() {
 
-        cleanEcran();
         afficherBoutonRetour();
 
         String l[] = { "--- x ---", "3", "4", "5" };
@@ -86,61 +92,63 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
             nbJoueurs = Integer.valueOf((String) jcbNbJoueurs.getSelectedItem());
             System.out.println(getNbJoueurs() + " joueurs \n -----");
 
-            ChoisirJoueurs();
+            cleanEcran(choixJ);
+            int y = 150; // taille du panel composants non effaces
 
             JLabel lab1 = new JLabel("Joueur1");
             JLabel lab2 = new JLabel("Joueur2");
             JLabel lab3 = new JLabel("Joueur3");
-            lab1.setBounds(120, 180, 60, 30);
-            lab2.setBounds(120, 230, 60, 30);
-            lab3.setBounds(120, 280, 60, 30);
+            lab1.setBounds(120, 180 - y, 60, 30);
+            lab2.setBounds(120, 230 - y, 60, 30);
+            lab3.setBounds(120, 280 - y, 60, 30);
             labelJ1 = new JLabel("Moi");
             labelJ1.setFont(pol);
             barreJ2 = new JTextField();
             barreJ3 = new JTextField();
-            labelJ1.setBounds(180, 180, 300, 30);
-            barreJ2.setBounds(180, 230, 300, 30);
-            barreJ3.setBounds(180, 280, 300, 30);
+            labelJ1.setBounds(180, 180 - y, 300, 30);
+            barreJ2.setBounds(180, 230 - y, 300, 30);
+            barreJ3.setBounds(180, 280 - y, 300, 30);
             labelJ1.setHorizontalAlignment(SwingConstants.CENTER);
             barreJ2.setHorizontalAlignment(SwingConstants.CENTER);
             barreJ3.setHorizontalAlignment(SwingConstants.CENTER);
             boutonSuivant = new JButton("Suivant");
-            boutonSuivant.setBounds(440, 500, 120, 50);
+            boutonSuivant.setBounds(440, 500 - y, 120, 50);
             boutonSuivant.addActionListener(this);
-            this.add(lab1);
-            this.add(lab2);
-            this.add(lab3);
-            this.add(labelJ1);
-            this.add(barreJ2);
-            this.add(barreJ3);
-            this.add(boutonSuivant);
+            choixJ.add(lab1);
+            choixJ.add(lab2);
+            choixJ.add(lab3);
+            choixJ.add(labelJ1);
+            choixJ.add(barreJ2);
+            choixJ.add(barreJ3);
+            choixJ.add(boutonSuivant);
 
             if (nbJoueurs == 4) {
                 JLabel lab4 = new JLabel("Joueur4");
-                lab4.setBounds(120, 330, 60, 30);
+                lab4.setBounds(120, 330 - y, 60, 30);
                 barreJ4 = new JTextField();
-                barreJ4.setBounds(180, 330, 300, 30);
+                barreJ4.setBounds(180, 330 - y, 300, 30);
                 barreJ4.setHorizontalAlignment(SwingConstants.CENTER);
-                this.add(lab4);
-                this.add(barreJ4);
+                choixJ.add(lab4);
+                choixJ.add(barreJ4);
 
             } else if (nbJoueurs == 5) {
                 JLabel lab4 = new JLabel("Joueur4");
                 JLabel lab5 = new JLabel("Joueur5");
-                lab4.setBounds(120, 330, 60, 30);
-                lab5.setBounds(120, 380, 60, 30);
+                lab4.setBounds(120, 330 - y, 60, 30);
+                lab5.setBounds(120, 380 - y, 60, 30);
                 barreJ4 = new JTextField();
                 barreJ5 = new JTextField();
-                barreJ4.setBounds(180, 330, 300, 30);
-                barreJ5.setBounds(180, 380, 300, 30);
+                barreJ4.setBounds(180, 330 - y, 300, 30);
+                barreJ5.setBounds(180, 380 - y, 300, 30);
                 barreJ4.setHorizontalAlignment(SwingConstants.CENTER);
                 barreJ5.setHorizontalAlignment(SwingConstants.CENTER);
-                this.add(lab4);
-                this.add(lab5);
-                this.add(barreJ4);
-                this.add(barreJ5);
+                choixJ.add(lab4);
+                choixJ.add(lab5);
+                choixJ.add(barreJ4);
+                choixJ.add(barreJ5);
             }
         }
+        SwingUtilities.updateComponentTreeUI(choixJ);
     }
 
     public int getNbJoueurs() {
