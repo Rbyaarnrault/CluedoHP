@@ -188,8 +188,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
         }
 
         if (i == jcbType1) {
-            cleanEcran(pan1);
-            ChoisirCartes();
+
             if (jcbType1.getSelectedItem() == "Suspect") {
                 this.C1 = new JComboBox(oS); // contr.modele.cartesSuspect
             } else if (jcbType1.getSelectedItem() == "Objet") {
@@ -207,8 +206,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
             pan1.add(C1);
 
         } else if (i == jcbType2) {
-            cleanEcran(pan2);
-            ChoisirCartes();
+
             if (jcbType2.getSelectedItem() == "Suspect") {
                 C2 = new JComboBox(oS);
             } else if (jcbType2.getSelectedItem() == "Objet") {
@@ -226,8 +224,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
             pan2.add(C2);
 
         } else if (i == jcbType3) {
-            cleanEcran(pan3);
-            ChoisirCartes();
+
             if (jcbType3.getSelectedItem() == "Suspect") {
                 C3 = new JComboBox(oS);
             } else if (jcbType3.getSelectedItem() == "Objet") {
@@ -245,8 +242,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
             pan3.add(C3);
 
         } else if (i == jcbType4) {
-            cleanEcran(pan4);
-            ChoisirCartes();
+
             if (jcbType4.getSelectedItem() == "Suspect") {
                 C4 = new JComboBox(oS);
             } else if (jcbType4.getSelectedItem() == "Objet") {
@@ -265,8 +261,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
             pan4.add(C4);
 
         } else if (i == jcbType5) {
-            cleanEcran(pan5);
-            ChoisirCartes();
+
             if (jcbType5.getSelectedItem() == "Suspect") {
                 C5 = new JComboBox(oS);
             } else if (jcbType5.getSelectedItem() == "Objet") {
@@ -284,8 +279,7 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
             pan5.add(C5);
 
         } else if (i == jcbType6) {
-            cleanEcran(pan6);
-            ChoisirCartes();
+
             if (jcbType6.getSelectedItem() == "Suspect") {
                 C6 = new JComboBox(oS);
             } else if (jcbType6.getSelectedItem() == "Objet") {
