@@ -58,4 +58,28 @@ public class Model {
     public ArrayList<Joueur> getListeJoueurs() {
         return listeJoueurs;
     }
+
+    public ArrayList<Carte> getListeCartes() {
+        return jeuCartes;
+    }
+
+    public ArrayList<Carte> getListeCartesSuspect() {
+        return cartesSuspects;
+    }
+
+    public ArrayList<Carte> getListeCartesObjet() {
+        return cartesObjets;
+    }
+
+    public ArrayList<Carte> getListeCartesLieux() {
+        return cartesLieux;
+    }
+
+    public ArrayList<Carte> getMesCartes() {
+        return mesCartes;
+    }
+
+    public ArrayList<Carte> getSolution() {
+        return solution;
+    }
 }
