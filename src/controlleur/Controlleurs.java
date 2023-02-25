@@ -13,6 +13,8 @@ public class Controlleurs {
     private EcranChoixJoueurs panelChoixJoueurs;
     private EcranChoixCartes panelChoixCartes;
     private EcranPartie panelPartie;
+    private EcranHypothese panelHypothese;
+    private EcranHistorique panelHistorique;
     private EcranParametres panelParam;
 
     public static void main(String[] args) {
@@ -23,6 +25,7 @@ public class Controlleurs {
         modele = new Model();
         fen = new FenetreAppli(this);
         fen.setVisible(true);
+        panelHistorique = new EcranHistorique(this);
         choixEcranAffiche(1);
     }
 
@@ -47,13 +50,29 @@ public class Controlleurs {
                 fen.setTitle("Solver Cluedo HP  -  Création d'une partie");
                 break;
 
-            case 4: // Ecran Partie
+            case 14: // Ecran Partie
                 panelPartie = new EcranPartie(this);
                 fen.setContentPane(panelPartie);
                 fen.setTitle("Solver Cluedo HP  -  Partie en cours");
                 break;
 
-            case 5: // Ecran Parametres
+            case 24: // Ecran Partie
+                fen.setContentPane(panelPartie);
+                fen.setTitle("Solver Cluedo HP  -  Partie en cours");
+                break;
+
+            case 5: // Ecran Hypothèse
+                panelHypothese = new EcranHypothese(this);
+                fen.setContentPane(panelHypothese);
+                fen.setTitle("Solver Cluedo HP  -  Faire une hypothèse");
+                break;
+
+            case 6: // Ecran Historique
+                fen.setContentPane(panelHistorique);
+                fen.setTitle("Solver Cluedo HP  -  Historique des hypothèses ");
+                break;
+
+            case 7: // Ecran Parametres
                 panelParam = new EcranParametres(this);
                 fen.setContentPane(panelParam);
                 fen.setTitle("Solver Cluedo HP  -  Paramètres");

@@ -28,7 +28,6 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
         this.setLayout(null);
         this.setBounds(0, 0, 600, 600);
         AfficherComposantsNonEffaces();
-        ;
         pol = new Font("Serif", Font.BOLD, 20);
         afficherBoutonRetour();
         choixJ = new JPanel();
@@ -52,8 +51,6 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
 
     // -----------------CASE1------------------
     public void AfficherComposantsNonEffaces() {
-
-        afficherBoutonRetour();
 
         String l[] = { "--- x ---", "3", "4", "5" };
         String l2[] = { "Classique (Questions au joueur de gauche)", "Expert (Question au joueur de son choix)" };
@@ -159,10 +156,9 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boutonRetourAccueil) {
             contr.choixEcranAffiche(1);
-
         } else if (e.getSource() == boutonSuivant) {
             if (nbJoueurs == 3) {
-                if ((!barreJ2.getText().equals(null)) && (!barreJ3.getText().equals(null))) {
+                if ((!barreJ2.getText().equals("")) && (!barreJ3.getText().equals(""))) {
                     contr.getModel().getListeJoueurs().add(new Joueur(labelJ1.getText(), 6));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ2.getText(), 6));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ3.getText(), 6));
@@ -170,8 +166,8 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
                     JOptionPane.showMessageDialog(this, "Vous devez entrer le nom de tous les joueurs !");
                 }
             } else if (nbJoueurs == 4) {
-                if ((!barreJ2.getText().equals(null)) && (!barreJ3.getText().equals(null))
-                        && (!barreJ4.getText().equals(null))) {
+                if ((!barreJ2.getText().equals("")) && (!barreJ3.getText().equals(""))
+                        && (!barreJ4.getText().equals(""))) {
                     contr.getModel().getListeJoueurs().add(new Joueur(labelJ1.getText(), 4));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ2.getText(), 4));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ3.getText(), 4));
@@ -180,8 +176,8 @@ public class EcranChoixJoueurs extends JPanel implements ActionListener, ItemLis
                     JOptionPane.showMessageDialog(this, "Vous devez entrer le nom de tous les joueurs !");
                 }
             } else if (nbJoueurs == 5) {
-                if ((!barreJ2.getText().equals(null)) && (!barreJ3.getText().equals(null))
-                        && (!barreJ4.getText().equals(null)) && (!barreJ5.getText().equals(null))) {
+                if ((!barreJ2.getText().equals("")) && (!barreJ3.getText().equals(""))
+                        && (!barreJ4.getText().equals("")) && (!barreJ5.getText().equals(""))) {
                     contr.getModel().getListeJoueurs().add(new Joueur(labelJ1.getText(), 3));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ2.getText(), 3));
                     contr.getModel().getListeJoueurs().add(new Joueur(barreJ3.getText(), 3));

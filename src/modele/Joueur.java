@@ -34,4 +34,8 @@ public class Joueur {
             cartesJoueur.add(new Lieux(nomC));
         }
     }
+
+    public String getNomJoueur() {
+        return nomJoueur;
+    }
 }
