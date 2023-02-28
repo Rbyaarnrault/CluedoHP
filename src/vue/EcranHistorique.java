@@ -13,6 +13,7 @@ public class EcranHistorique extends JPanel implements ActionListener {
     private Controlleurs contr;
     private int nbJoueurs, nbCartesJoueurs;
     private Font pol;
+    private JButton boutonRetourNotes;
 
     public EcranHistorique(Controlleurs contr) {
         this.contr = contr;
@@ -22,10 +23,20 @@ public class EcranHistorique extends JPanel implements ActionListener {
         this.setLayout(null);
         this.setBounds(0, 0, 600, 600);
         pol = new Font("Serif", Font.BOLD, 22);
+        setEcranHistorique();
+    }
+
+    public void setEcranHistorique() {
+        boutonRetourNotes = new JButton("Retour aux notes");
+        boutonRetourNotes.setBounds(30, 500, 250, 30);
+        boutonRetourNotes.addActionListener(this);
+        this.add(boutonRetourNotes);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == boutonRetourNotes) {
+            contr.choixEcranAffiche(24);
+        }
     }
 }

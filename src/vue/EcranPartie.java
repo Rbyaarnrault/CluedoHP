@@ -14,7 +14,7 @@ public class EcranPartie extends JPanel implements ActionListener {
     private int nbJoueurs, nbCartesJoueurs;
     private Font pol;
     private JTable table;
-    private JButton boutonFaireProposotion;
+    private JButton boutonFaireProposotion, boutonHistorique;
 
     public EcranPartie(Controlleurs contr) {
         this.contr = contr;
@@ -30,15 +30,23 @@ public class EcranPartie extends JPanel implements ActionListener {
         this.add(table);
 
         boutonFaireProposotion = new JButton("Faire une hypothèse");
-        boutonFaireProposotion.setBounds(200, 500, 200, 30);
+        boutonFaireProposotion.setBounds(250, 500, 200, 30);
         boutonFaireProposotion.addActionListener(this);
         this.add(boutonFaireProposotion);
+
+        boutonHistorique = new JButton("Historique hypothèses");
+
+        boutonHistorique.setBounds(30, 500, 200, 30);
+        boutonHistorique.addActionListener(this);
+        this.add(boutonHistorique);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boutonFaireProposotion) {
             contr.choixEcranAffiche(5);
+        } else if (e.getSource() == boutonHistorique) {
+            contr.choixEcranAffiche(6);
         }
     }
 }

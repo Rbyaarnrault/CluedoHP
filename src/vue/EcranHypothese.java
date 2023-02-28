@@ -27,8 +27,8 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
         this.setBackground(Color.lightGray);
         this.setLayout(null);
         this.setBounds(0, 0, 600, 600);
+        pol = new Font("Serif", Font.BOLD, 20);
         setEcranHypothese();
-        pol = new Font("Serif", Font.BOLD, 30);
         afficherBoutonRetour();
     }
 
@@ -44,7 +44,7 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
     public void setEcranHypothese() {
 
         JLabel texteProposition = new JLabel("Hypothèse");
-        JLabel texteDemandeA = new JLabel(" Demande à ");
+        JLabel texteDemandeA = new JLabel(" demande à ");
         JLabel texteDeuxPoints1 = new JLabel(":");
         JLabel texteSuspect = new JLabel("Suspect");
         JLabel texteObjet = new JLabel("Objet");
@@ -93,24 +93,28 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
         jcbObjet = new JComboBox(oO);
         jcbLieux = new JComboBox(oL);
 
-        jcbSuspect.setBounds(130, 220, 100, 30);
-        jcbObjet.setBounds(270, 220, 100, 30);
-        jcbLieux.setBounds(400, 220, 100, 30);
+        jcbSuspect.setBounds(35, 220, 170, 30);
+        jcbObjet.setBounds(215, 220, 170, 30);
+        jcbLieux.setBounds(395, 220, 170, 30);
         // -------------------
 
         ArrayList<Joueur> lJ = m.getListeJoueurs();
 
         String[] oJ = { "", "", "", "", "" };
+        String[] oJ2 = { "", "", "", "" };
 
         for (int x = 0; x < lJ.size(); x++) {
             oJ[x] = lJ.get(x).getNomJoueur();
+            if (lJ.get(x).getNomJoueur() != "Moi") {
+                oJ2[x] = lJ.get(x).getNomJoueur();
+            }
         }
 
         jcbDemandeur = new JComboBox(oJ);
-        jcbRepondeur = new JComboBox(oJ);
+        jcbRepondeur = new JComboBox(oJ2);
 
-        jcbDemandeur.setBounds(100, 120, 120, 30);
-        jcbRepondeur.setBounds(350, 120, 120, 30);
+        jcbDemandeur.setBounds(110, 120, 120, 30);
+        jcbRepondeur.setBounds(340, 120, 120, 30);
         // -------------------
 
         ArrayList<Carte> lC = m.getListeCartes();
