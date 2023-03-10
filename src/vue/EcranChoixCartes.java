@@ -298,6 +298,26 @@ public class EcranChoixCartes extends JPanel implements ActionListener, ItemList
         if (e.getSource() == boutonRetourAccueil) {
             contr.choixEcranAffiche(1);
         } else if (e.getSource() == boutonLancerPartie) {
+            ArrayList<Joueur> liJoueurs = contr.getModel().getListeJoueurs();
+
+            liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C1.getSelectedItem()),
+                    String.valueOf(jcbType1.getSelectedItem()));
+            liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C2.getSelectedItem()),
+                    String.valueOf(jcbType2.getSelectedItem()));
+            liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C3.getSelectedItem()),
+                    String.valueOf(jcbType3.getSelectedItem()));
+            if (nbJoueurs == 3) {
+                liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C4.getSelectedItem()),
+                        String.valueOf(jcbType4.getSelectedItem()));
+                liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C5.getSelectedItem()),
+                        String.valueOf(jcbType5.getSelectedItem()));
+                liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C6.getSelectedItem()),
+                        String.valueOf(jcbType6.getSelectedItem()));
+            } else if (nbJoueurs == 4) {
+                liJoueurs.get(0).trouverCarteJoueur(String.valueOf(C4.getSelectedItem()),
+                        String.valueOf(jcbType4.getSelectedItem()));
+            }
+
             contr.choixEcranAffiche(14);
         }
     }

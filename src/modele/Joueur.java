@@ -10,6 +10,7 @@ public class Joueur {
     public Joueur(String j, int nb) {
         nomJoueur = j;
         cartesJoueur = new ArrayList<Carte>();
+        nbCartesJoueur = nb;
         for (int i = 1; i <= nb; i++) {
             ajouterCartesJoueurs();
         }
@@ -20,22 +21,26 @@ public class Joueur {
     }
 
     public void trouverCarteJoueur(String nomC, String type) { // affecte à un joueur une de ses cartes trouvée.
-        int x = 1;
-        while ((cartesJoueur.get(x).getNomCarte() != "?") && (x < nbCartesJoueur)) {
-            x++;
-        }
-        cartesJoueur.remove(cartesJoueur.get(x));
+        for (int i = 0; i < cartesJoueur.size(); i++) {
+            if (cartesJoueur.get(i).getNomCarte().equals("?")) {
 
-        if (type.equals("Suspect")) {
-            cartesJoueur.add(new Suspect(nomC));
-        } else if (type.equals("Objet")) {
-            cartesJoueur.add(new Objet(nomC));
-        } else if (type.equals("Lieux")) {
-            cartesJoueur.add(new Lieux(nomC));
+                if (type.equals("Suspect")) {
+                    cartesJoueur.set(i, new Suspect(nomC));
+                } else if (type.equals("Objet")) {
+                    cartesJoueur.set(i, new Objet(nomC));
+                } else if (type.equals("Lieux")) {
+                    cartesJoueur.set(i, new Lieux(nomC));
+                }
+                break;
+            }
         }
     }
 
     public String getNomJoueur() {
         return nomJoueur;
+    }
+
+    public ArrayList<Carte> getCartesJoueur() {
+        return cartesJoueur;
     }
 }
