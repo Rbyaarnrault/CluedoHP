@@ -11,6 +11,7 @@ public class Model {
     private ArrayList<Carte> cartesObjets;
     private ArrayList<Carte> cartesLieux;
     private ArrayList<Carte> solution;
+    private ArrayList<Hypothese> listeHypotheses;
 
     public Model() {
         String[] listeCartes = { "Fenrir Greyback", "Lucius Malefoy", "Peter Pettigrow",
@@ -26,6 +27,7 @@ public class Model {
         cartesObjets = new ArrayList<Carte>();
         cartesLieux = new ArrayList<Carte>();
         solution = new ArrayList<Carte>();
+        listeHypotheses = new ArrayList<Hypothese>();
 
         System.out.println("\n---------------------------\n---jeu de cartes complet---");
 
@@ -81,5 +83,9 @@ public class Model {
 
     public ArrayList<Carte> getSolution() {
         return solution;
+    }
+
+    public ArrayList<Hypothese> getListeHypotheses() {
+        return listeHypotheses;
     }
 }

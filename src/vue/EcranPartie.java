@@ -97,7 +97,11 @@ public class EcranPartie extends JPanel implements ActionListener {
 
         Renderer = new DefaultTableCellRenderer();
         cocherCartesPerso();
-        modifRendererTable(Renderer);
+        centerRendererTable(Renderer);
+
+        int[] tabLigneRight = { 7, 8, 9, 10, 11, 12 }; // Pour centrer les cellules des lignes 7,8... à droite
+        DefaultTableCellRenderer rightRend = new ConditionalRightTableCellRenderer(tabLigneRight);
+        table.getColumnModel().getColumn(0).setCellRenderer(rightRend);
 
         // ------------
         boutonFaireProposotion = new JButton("Faire une hypothèse");
@@ -118,7 +122,6 @@ public class EcranPartie extends JPanel implements ActionListener {
 
         for (int j = 1; j < 21 + 1; j++) {
             for (int i = 0; i < car.size(); i++) {
-                System.out.println(car.get(i).getNomCarte());
 
                 if (car.get(i).getNomCarte().equals(table.getValueAt(j, 0))) {
                     table.setValueAt("O", j, nbJoueurs);
@@ -133,7 +136,72 @@ public class EcranPartie extends JPanel implements ActionListener {
         }
     }
 
-    private void modifRendererTable(DefaultTableCellRenderer DefTabCell) {
+    public void ajouterInfosHypothese(Hypothese h, String rep) {
+        // Liste Joueur
+        ArrayList<Joueur> lJ = contr.getModel().getListeJoueurs();
+        String joueur;
+        int x = 0;
+        while (x < lJ.size()) {
+            if (h.getJoueurReponseHypothese().equals(lJ.get(x).getNomJoueur())) {
+                joueur = h.getJoueurReponseHypothese();
+                break;
+            }
+            x++;
+        }
+
+        // Liste Cartes
+        ArrayList<Carte> lC = contr.getModel().getListeCartes();
+
+        int y = 0; // Suspect
+        while (y < lC.size()) {
+            if (h.getSuspectHypothese().equals(lC.get(y).getNomCarte())) {
+                break;
+            }
+            y++;
+        }
+
+        int z = 0; // Objet
+        while (z < lC.size()) {
+            if (h.getObjetHypothese().equals(lC.get(z).getNomCarte())) {
+                break;
+            }
+            z++;
+        }
+
+        int k = 0; // Lieux
+        while (k < lC.size()) {
+            if (h.getLieuxHypothese().equals(lC.get(k).getNomCarte())) {
+                break;
+            }
+            k++;
+        }
+
+        int j = 0; // Réponse
+        while (j < lC.size()) {
+            if (rep.equals(lC.get(j).getNomCarte())) {
+                break;
+            }
+            j++;
+        }
+
+        if (rep.equals("aucune")) {
+
+            table.setValueAt("X", y + 1, x);
+            table.setValueAt("X", z + 1, x);
+            table.setValueAt("X", k + 1, x);
+
+        } else {
+            table.setValueAt("O", j + 1, x);
+
+            for (int tmp = 1; tmp < lJ.size(); tmp++) {
+                if (tmp != x) { // Si diff de la carte trouvée
+                    table.setValueAt("X", j + 1, tmp);
+                }
+            }
+        }
+    }
+
+    private void centerRendererTable(DefaultTableCellRenderer DefTabCell) {
         DefTabCell.setHorizontalAlignment(JLabel.CENTER); // centre les données de ton tableau
 
         for (int i = 1; i < table.getColumnCount(); i++) { // centre chaque cellule de ton tableau

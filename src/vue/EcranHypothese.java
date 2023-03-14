@@ -21,6 +21,8 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
     private JButton boutonValider;
     private Font pol;
     private JCheckBox boxAucune, boxCarte;
+    private Hypothese hypothese;
+    private String reponse;
 
     public EcranHypothese(Controlleurs contr) {
         this.contr = contr;
@@ -101,17 +103,13 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
         ArrayList<Joueur> lJ = m.getListeJoueurs();
 
         String[] oJ = { "", "", "", "", "" };
-        String[] oJ2 = { "", "", "", "" };
 
         for (int x = 0; x < lJ.size(); x++) {
             oJ[x] = lJ.get(x).getNomJoueur();
-            if (lJ.get(x).getNomJoueur() != "Moi") {
-                oJ2[x] = lJ.get(x).getNomJoueur();
-            }
         }
 
         jcbDemandeur = new JComboBox(oJ);
-        jcbRepondeur = new JComboBox(oJ2);
+        jcbRepondeur = new JComboBox(oJ);
 
         jcbDemandeur.setBounds(110, 120, 120, 30);
         jcbRepondeur.setBounds(340, 120, 120, 30);
@@ -180,6 +178,14 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
         this.add(boutonValider);
     }
 
+    public Hypothese getHypothese() {
+        return hypothese;
+    }
+
+    public String getReponse() {
+        return reponse;
+    }
+
     // ----------------------------------------
 
     @Override
@@ -190,6 +196,15 @@ public class EcranHypothese extends JPanel implements ActionListener, ItemListen
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boutonValider) {
+            String jDem = String.valueOf(jcbDemandeur.getSelectedItem());
+            String jRep = String.valueOf(jcbRepondeur.getSelectedItem());
+            String s = String.valueOf(jcbSuspect.getSelectedItem());
+            String o = String.valueOf(jcbObjet.getSelectedItem());
+            String l = String.valueOf(jcbLieux.getSelectedItem());
+            reponse = String.valueOf(jcbReponse.getSelectedItem());
+            hypothese = new Hypothese(jDem, jRep, s, o, l);
+            contr.getModel().getListeHypotheses().add(hypothese);
+
             contr.choixEcranAffiche(24);
         }
     }

@@ -2,7 +2,7 @@ package controlleur;
 
 import javax.swing.SwingUtilities;
 
-import modele.Model;
+import modele.*;
 import vue.*;
 
 public class Controlleurs {
@@ -25,7 +25,6 @@ public class Controlleurs {
         modele = new Model();
         fen = new FenetreAppli(this);
         fen.setVisible(true);
-        panelHistorique = new EcranHistorique(this);
         choixEcranAffiche(1);
     }
 
@@ -57,6 +56,9 @@ public class Controlleurs {
                 break;
 
             case 24: // Ecran Partie
+                Hypothese h = panelHypothese.getHypothese();
+                String r = panelHypothese.getReponse();
+                panelPartie.ajouterInfosHypothese(h, r);
                 fen.setContentPane(panelPartie);
                 fen.setTitle("Solver Cluedo HP  -  Partie en cours");
                 break;
@@ -68,6 +70,7 @@ public class Controlleurs {
                 break;
 
             case 6: // Ecran Historique
+                panelHistorique = new EcranHistorique(this);
                 fen.setContentPane(panelHistorique);
                 fen.setTitle("Solver Cluedo HP  -  Historique des hypothèses ");
                 break;
